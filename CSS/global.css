@@ -5,15 +5,10 @@
 }
 
 body {
-    color: white;
-    font-family: "Nexa-Trial", sans-serif;
-    font-size: 18px;
-        background-color: #1b1b1b;
-}
-
-.home-container {
-  display: flex;
-  flex-direction: row;
+  color: white;
+  font-family: "Nexa-Trial", sans-serif;
+  font-size: 18px;
+  background-color: #1b1b1b;
 }
 
 .canvas-container {
@@ -21,7 +16,6 @@ body {
   align-items: flex-end;
   justify-content: flex-end;
   border: 2px solid black; */
-  position: relative;
   background-color: white;
 }
 
