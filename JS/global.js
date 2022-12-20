@@ -14,12 +14,11 @@ function vh(percent) {
   return (percent * h) / 100;
 }
 
-const canvasContainer = document.querySelector(".canvas-container")
+const canvasContainer = document.querySelector(".canvas-container");
 const canvasReal = document.querySelector("#canvas-real");
 const canvasDraft = document.querySelector("#canvas-draft");
 const ctxReal = canvasReal.getContext("2d");
 const ctxDraft = canvasDraft.getContext("2d");
-
 
 // --- Sizing ---
 
@@ -33,20 +32,18 @@ canvasContainer.style.width = `${canvasReal.width}px`;
 canvasContainer.style.height = `${canvasReal.height}px`;
 canvasContainer.style.marginLeft = `${fullWidth - canvasReal.width}px`;
 
-
 // --- Layout ---
 
 {
   let sideBar = document.querySelector(".side-bar");
-  let arrowCollapse = document.querySelector("#logo-name__icon");
+  let arrowCollapse = document.querySelector("#title__icon");
   sideBar.onclick = () => {
     sideBar.classList.toggle("collapse");
     arrowCollapse.classList.toggle("collapse");
     if (arrowCollapse.classList.contains("collapse")) {
-      arrowCollapse.classList =
-        "bx bx-arrow-from-left logo-name__icon collapse";
+      arrowCollapse.classList = "fa-solid fa-caret-right title__icon collapse";
     } else {
-      arrowCollapse.classList = "bx bx-arrow-from-right logo-name__icon";
+      arrowCollapse.classList = "fa-solid fa-caret-left title__icon";
     }
     if (sideBar.classList.contains("collapse")) {
       sideBar.style.width = `${fullWidth - canvasReal.width}px`;
@@ -55,7 +52,3 @@ canvasContainer.style.marginLeft = `${fullWidth - canvasReal.width}px`;
     }
   };
 }
-
-
-
-
