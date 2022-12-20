@@ -163,13 +163,15 @@
   align-items: center;
 }
 .tooltip {
+  min-width: 10vw;
   position: absolute;
   top: -2.1rem;
   left: 5vw;
   background-color: white;
   color: var(--background-color);
   border-radius: 0.4rem;
-  padding: 0.5rem 0.9rem;
+  padding: 0.5rem 0.5rem;
+  text-align: center;
   font-size: 1rem;
   transition: 0s;
   opacity: 0;
@@ -185,9 +187,6 @@
   opacity: 1;
   visibility: visible;
 }
-/* .side-bar.collapse {
-  width: 6.4rem;
-} */
 .side-bar.collapse .tooltip {
   visibility: hidden;
   display: block;
@@ -195,7 +194,7 @@
 .side-bar.collapse .title,
 .side-bar.collapse .features-item-select,
 .side-bar.collapse .inbox-number,
-.side-bar.collapse .message-text {
+.side-bar.collapse .message {
   opacity: 0;
   pointer-events: none;
   transition: all 0.25s ease;
@@ -209,6 +208,9 @@
 }
 .side-bar.collapse .config-list {
   flex-direction: column;
+}
+.side-bar.collapse .config-item .tooltip {
+  margin-left: 25px;
 }
 .side-bar.collapse .message-text {
   opacity: 0;
