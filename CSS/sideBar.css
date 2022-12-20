@@ -178,7 +178,7 @@
 }
 .side-bar.collapse .message:hover .tooltip,
 .side-bar.collapse .features-item:hover .tooltip,
-.config-item:hover .tooltip {
+.side-bar.collapse .config-item:hover .tooltip {
   top: 50%;
   transform: translateY(-50%);
   transition: all 0.5s ease;
