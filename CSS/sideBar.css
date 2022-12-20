@@ -14,21 +14,21 @@
   top: 0;
   z-index: 100;
 }
-.logo-name-wrapper {
+.title-wrapper {
   position: relative;
   margin-bottom: 2.1rem;
   display: flex;
   font-size: 1.2rem;
 }
-.logo-name {
+.title {
   display: flex;
   align-items: center;
 }
-.logo-name__name {
+.title__name {
   margin-left: 0.9rem;
   white-space: nowrap;
 }
-.logo-name__button {
+.title__button {
   position: absolute;
   top: 50%;
   right: 0;
@@ -38,9 +38,12 @@
   border: none;
   cursor: pointer;
 }
-.logo-name__icon {
+.title__icon {
   font-size: 1.8rem;
   color: var(--grey-color);
+}
+.title__icon:hover {
+  color: var(--white-color);
 }
 .message {
   background-color: var(--dark-grey-color);
@@ -69,7 +72,8 @@
   border-bottom: 1px solid #292932;
   list-style: none;
 }
-.features-item {
+.features-item,
+.config-item {
   display: flex;
   align-items: center;
   position: relative;
@@ -77,11 +81,15 @@
   margin-bottom: 1.1rem;
   color: var(--grey-color);
   cursor: pointer;
-  transition: 0.5s ease;
+}
+.features-item:hover,
+.config-item:hover {
+  transition: 0.25s ease;
+  color: var(--white-color);
 }
 .features-item::before {
   transition: 0.5s ease;
-  content: '';
+  content: "";
   position: absolute;
   left: -1.2rem;
   height: 100%;
@@ -90,21 +98,30 @@
   opacity: 0;
   visibility: hidden;
 }
-.features-item:hover {
-  color: var(--white-color);
-  transition: 0.5s ease;
-}
 .features-item:hover::before {
   opacity: 1;
   visibility: unset;
 }
-.features-item-icon {
-  font-size: 2rem;
+.features-item-select i {
+  color: var(--grey-color);
+  transition: 0.25s ease;
+  margin-right: 25px;
 }
-.features-item-text {
-  margin-left: 1.5rem;
+.features-item i:hover {
+  color: var(--white-color);
+  transition: 0.25s ease;
+}
+.features-item i:hover::before {
+  opacity: 1;
+  visibility: unset;
+}
+.features-item-select {
+  margin-left: 50px;
   transition: opacity 0.6s ease;
   opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .inbox-number {
   position: absolute;
@@ -116,7 +133,7 @@
   border-radius: 0.4rem;
   color: var(--white-color);
   opacity: 1;
-  transition: 0.6s linear;
+  /* transition: 0.6s linear; */
 }
 .inbox-icon {
   position: relative;
@@ -133,7 +150,7 @@
   opacity: 0;
   transition: 0.6s linear;
 }
-.category-list {
+.config-list {
   padding-top: 2.1rem;
   padding-bottom: 0.9rem;
   color: var(--grey-color);
@@ -141,164 +158,27 @@
   font-size: 1.2rem;
   font-weight: 500;
   border-bottom: 1px solid #292932;
-}
-.category-header {
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  line-height: 1.8rem;
-  color: var(--white-color);
-  margin-bottom: 1.3rem;
-  white-space: nowrap;
-}
-.category-item {
-  position: relative;
-  padding: 0.9rem 1.1rem;
-  line-height: 1.8rem;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.category-item-status {
-  height: 0.8rem;
-  width: 0.8rem;
-  border-radius: 50%;
-  border: none;
-  background-color: white;
-  display: inline-block;
-}
-.category-item-text {
-  margin-left: 1rem;
-  transition: opacity 0.6s ease;
-  opacity: 1;
-}
-.category-item-number {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-}
-.chat-list {
-  padding: 2.1rem 0;
-  font-size: 1.2rem;
-}
-.chat-header {
-  text-transform: uppercase;
-  line-height: 1.8rem;
-  color: var(--white-color);
-  margin-bottom: 1.3rem;
-  white-space: nowrap;
-}
-.chat-new-btn {
-  color: #1e75ff;
-  background-color: transparent;
-  outline: none;
-  border: none;
-  line-height: 1.8rem;
   display: flex;
+  justify-content: center;
   align-items: center;
-  padding-bottom: 2.1rem;
-  padding-left: 0.1rem;
-  cursor: pointer;
-  position: relative;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-}
-.chat-new-btn-text {
-  white-space: nowrap;
-  transition: opacity 0.6s ease;
-  opacity: 1;
-}
-.chat-icon {
-  font-size: 2.1rem;
-  margin-right: 1.2rem;
-}
-.chat-item {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-bottom: 2.1rem;
-  color: var(--grey-color);
-  cursor: pointer;
-}
-.chat-item-avatar-wrapper {
-  position: relative;
-}
-.chat-item-avatar-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -3px;
-  border-radius: 50%;
-  height: 8px;
-  width: 8px;
-  background-color: #79d861;
-  opacity: 0;
-  transition: 0.6s linear;
-}
-.chat-item-avatar-wrapper.has-message::before {
-  background-color: #1e75ff;
-  border: 2px solid var(--white-color);
-  height: 6px;
-  width: 6px;
-}
-.chat-item-avatar {
-  object-fit: cover;
-  object-position: top;
-  height: 2.1rem;
-  width: 2.1rem;
-  border-radius: 50%;
-  border: 1px solid var(--white-color);
-}
-/* background color in inline style */
-.chat-item-status {
-  height: 0.8rem;
-  width: 0.8rem;
-  border-radius: 50%;
-  border: none;
-  background-color: white;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  margin-right: 5px;
-  opacity: 1;
-  transition: 0.6s linear;
-}
-.chat-item-number {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background-color: #1e75ff;
-  padding: 0.5rem 0.9rem;
-  border-radius: 0.4rem;
-  color: var(--white-color);
-  opacity: 1;
-  transition: 0.6s linear;
-}
-.chat-item-name {
-  white-space: nowrap;
-  transition: opacity 0.6s ease;
-  opacity: 1;
-  margin-left: 1.4rem;
 }
 .tooltip {
   position: absolute;
   top: -2.1rem;
-  left: 6.4rem;
+  left: 5vw;
   background-color: white;
   color: var(--background-color);
   border-radius: 0.4rem;
   padding: 0.5rem 0.9rem;
-  font-size: 1.4rem;
+  font-size: 1rem;
   transition: 0s;
   opacity: 0;
   display: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .side-bar.collapse .message:hover .tooltip,
-.features-item:hover .tooltip,
-.category-item:hover .tooltip,
-.chat-new-btn:hover .tooltip {
+.side-bar.collapse .features-item:hover .tooltip,
+.config-item:hover .tooltip {
   top: 50%;
   transform: translateY(-50%);
   transition: all 0.5s ease;
@@ -310,20 +190,23 @@
 .side-bar.collapse .tooltip {
   display: block;
 }
-.side-bar.collapse .logo-name,
-.side-bar.collapse .category-header,
-.side-bar.collapse .chat-header,
-.side-bar.collapse .chat-new-btn-text,
-.side-bar.collapse .features-item-text,
+.side-bar.collapse .title,
+.side-bar.collapse .features-item-select,
 .side-bar.collapse .inbox-number,
-.side-bar.collapse .category-item-text,
-.side-bar.collapse .category-item-number,
-.side-bar.collapse .message-text,
-.side-bar.collapse .chat-item-name,
-.side-bar.collapse .chat-item-number,
-.side-bar.collapse .chat-item-status {
+.side-bar.collapse .message-text {
   opacity: 0;
   pointer-events: none;
+  transition: all 0.25s ease;
+}
+.side-bar.collapse .features-item {
+  justify-content: center;
+  padding: 0.5rem 0;
+}
+.side-bar.collapse .features-item-select {
+  display: none;
+}
+.side-bar.collapse .config-list {
+  flex-direction: column;
 }
 .side-bar.collapse .message-text {
   opacity: 0;
@@ -333,10 +216,7 @@
 .side-bar.collapse .message-icon {
   transform: translateX(0);
 }
-.side-bar.collapse .logo-name__button {
-  right: 0.5rem;
-}
-.side-bar.collapse .inbox-icon .status,
-.side-bar.collapse .chat-item-avatar-wrapper::before {
-  opacity: 1;
+.side-bar.collapse .title__button {
+  right: 50%;
+  transform: translate(50%, -50%);
 }
