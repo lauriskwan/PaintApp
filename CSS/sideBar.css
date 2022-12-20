@@ -102,10 +102,14 @@
   opacity: 1;
   visibility: unset;
 }
+.features-item-select {
+  position: absolute;
+  right: 0%;
+}
 .features-item-select i {
   color: var(--grey-color);
   transition: 0.25s ease;
-  margin-right: 25px;
+  margin-left: 25px;
 }
 .features-item i:hover {
   color: var(--white-color);
@@ -123,17 +127,8 @@
   justify-content: center;
   align-items: center;
 }
-.inbox-number {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  background-color: #1e75ff;
-  padding: 0.5rem 0.9rem;
-  border-radius: 0.4rem;
-  color: var(--white-color);
-  opacity: 1;
-  /* transition: 0.6s linear; */
+.item-selected {
+  background-color: rgb(255, 211, 0);
 }
 .inbox-icon {
   position: relative;
