@@ -183,11 +183,13 @@
   transform: translateY(-50%);
   transition: all 0.5s ease;
   opacity: 1;
+  visibility: visible;
 }
 /* .side-bar.collapse {
   width: 6.4rem;
 } */
 .side-bar.collapse .tooltip {
+  visibility: hidden;
   display: block;
 }
 .side-bar.collapse .title,
