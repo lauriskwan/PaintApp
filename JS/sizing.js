@@ -1,8 +1,3 @@
-const canvasReal = document.querySelector("#canvas-real");
-const canvasDraft = document.querySelector("#canvas-draft");
-
-// --- Sizing ---
-
 function vw(percent) {
   var w = Math.max(
     document.documentElement.clientWidth,
@@ -32,8 +27,9 @@ canvasContainer.style.marginLeft = `${fullWidth - canvasReal.width}px`;
 
 // --- Sizing the collapsed side bar ---
 
-{
   let sideBar = document.querySelector(".side-bar");
+
+{
   let arrowCollapse = document.querySelector("#title__icon");
   sideBar.onclick = () => {
     sideBar.classList.toggle("collapse");
@@ -48,5 +44,12 @@ canvasContainer.style.marginLeft = `${fullWidth - canvasReal.width}px`;
     } else {
       sideBar.style.width = "350px";
     }
+
+    // Hide tooltips on click, otherwise tooltips will keep hovering after the side bar is collapsed
+    
+    $(".tooltip").css("display", "none");
+    setTimeout(() => {
+          $(".tooltip").css("display", "unset");
+    }, 500)
   };
 }
