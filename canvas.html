@@ -122,18 +122,18 @@
 
     <script src="./JS/global.js"></script>
     <script src="./JS/sizing.js"></script>
-    <script src="./JS/drawLine.js"></script>
+    <script src="./JS/pen.js"></script>
     <script src="./JS/drawRectangle.js"></script>
 
     <!-- Change drawing tools -->
     <script type="text/javascript">
       $(() => {
-        currentFunction = new DrawingLine(contextReal); // Default drawing tool
+        currentFunction = new Pen(contextReal); // Default drawing tool
         $("#rectangle").click(() => {
           currentFunction = new DrawingRectangle(contextReal, contextDraft);
         });
         $("#pen").click(() => {
-          currentFunction = new DrawingLine(contextReal);
+          currentFunction = new Pen(contextReal);
         });
       });
     </script>

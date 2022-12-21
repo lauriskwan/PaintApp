@@ -1,5 +1,4 @@
 class DrawingLine extends PaintFunction {
-  
   constructor(contextReal) {
     super();
     this.context = contextReal;
@@ -14,9 +13,9 @@ class DrawingLine extends PaintFunction {
     // Width of line
     this.context.lineWidth = 1;
     // Drawing the line here
-    this.context.beginPath();                 // Reset previous path every time mouse down occurs
+    this.context.beginPath(); // Reset previous path every time mouse down occurs
     this.context.moveTo(coord[0], coord[1]);
-    this.draw(coord[0], coord[1]);            // Together with lineCap it allows drawing on click, instead of only dragging
+    this.draw(coord[0], coord[1]); // Together with lineCap it allows drawing on click, instead of only dragging
   }
   // Clicking and removing your mouse
   onDragging(coord, event) {
