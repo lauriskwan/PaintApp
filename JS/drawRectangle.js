@@ -9,7 +9,6 @@ class DrawingRectangle extends PaintFunction {
     this.contextReal.fillStyle = "#000000";
     this.origX = coord[0];
     this.origY = coord[1];
-    console.log(this.origX)
   }
 
   onDragging(coord, event) {
@@ -28,7 +27,6 @@ class DrawingRectangle extends PaintFunction {
       this.origY,
       coord[0] - this.origX,
       coord[1] - this.origY,
-      console.log(this.origX)
     );
   }
 
@@ -50,7 +48,6 @@ class DrawingRectangle extends PaintFunction {
       this.origY,
       coord[0] - this.origX,
       coord[1] - this.origY,
-      console.log(coord[0] - this.origX)
     );
   }
   onMouseLeave() {}
