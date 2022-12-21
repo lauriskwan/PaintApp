@@ -1,36 +1,29 @@
-class DrawingLine extends PaintFunction {
+class Brush extends PaintFunction {
   constructor(contextReal) {
     super();
     this.context = contextReal;
   }
 
-  // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
     // Fill in the color
-    this.context.strokeStyle = "#000000";
-    // Kind of line
-    this.context.lineCap = "round";
-    // Width of line
-    this.context.lineWidth = 1;
-    // Drawing the line here
+    this.context.fillStyle = "#000000";
+    // Start brushing
     this.context.beginPath(); // Reset previous path every time mouse down occurs
-    this.context.moveTo(coord[0], coord[1]);
-    this.draw(coord[0], coord[1]); // Together with lineCap it allows drawing on click, instead of only dragging
+    this.context.arc(coord[0], coord[1], 50, 0, Math.PI * 2)
+    this.draw(coord[0], coord[1]); // gives a circle by clicking
   }
-  // Clicking and removing your mouse
-  onDragging(coord, event) {
-    this.draw(coord[0], coord[1]);
+  onDragging(coord, event) {      // Every time mouse down happens, dragging = true in global.js, thus triggering onDragging.
+     this.context.beginPath(); // Reset previous path every time mouse down occurs
+     this.context.arc(coord[0], coord[1], 50, 0, Math.PI * 2);
+     this.draw();
   }
-
-  onMouseMove() {}
+  onMouseMove() {
+  }
   onMouseUp() {}
   onMouseLeave() {}
   onMouseEnter() {}
 
   draw(x, y) {
-    //
-    this.context.lineTo(x, y);
-    // Draw the line onto the page
-    this.context.stroke();
+    this.context.fill();
   }
 }

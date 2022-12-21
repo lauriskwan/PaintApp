@@ -42,7 +42,7 @@
         <li class="features-item">
           <i class="fa-solid fa-paintbrush"></i>
           <span class="features-item-select"
-            ><i class="fa-solid fa-paintbrush items-selected"></i
+            ><i class="fa-solid fa-paintbrush items-selected" id="brush"></i
             ><i class="fa-solid fa-spray-can" style="margin-left: 32px"></i
             ><i class="fa-solid fa-pen" id="pen"></i
           ></span>
@@ -58,7 +58,7 @@
           <span class="tooltip">Shapes</span>
         </li>
         <li class="features-item">
-          <i class="fa-solid fa-eraser"></i>
+          <i class="fa-solid fa-eraser" id="eraser"></i>
           <span class="features-item-select">Placeholder</span>
           <span class="tooltip">Eraser</span>
         </li>
@@ -123,17 +123,25 @@
     <script src="./JS/global.js"></script>
     <script src="./JS/sizing.js"></script>
     <script src="./JS/pen.js"></script>
+    <script src="./JS/brush.js"></script>
     <script src="./JS/drawRectangle.js"></script>
+    <script src="./JS/eraser.js"></script>
 
     <!-- Change drawing tools -->
     <script type="text/javascript">
       $(() => {
         currentFunction = new Pen(contextReal); // Default drawing tool
+        $("#pen").click(() => {
+          currentFunction = new Pen(contextReal);
+        });
+        $("#brush").click(() => {
+          currentFunction = new Brush(contextReal);
+        });
         $("#rectangle").click(() => {
           currentFunction = new DrawingRectangle(contextReal, contextDraft);
         });
-        $("#pen").click(() => {
-          currentFunction = new Pen(contextReal);
+        $("#eraser").click(() => {
+          currentFunction = new Eraser(contextReal, contextDraft);
         });
       });
     </script>
