@@ -43,7 +43,8 @@
           <i class="fa-solid fa-paintbrush"></i>
           <span class="features-item-select"
             ><i class="fa-solid fa-paintbrush items-selected"></i
-            ><i class="fa-solid fa-spray-can" style="margin-left: 32px"></i><i class="fa-solid fa-pen"></i
+            ><i class="fa-solid fa-spray-can" style="margin-left: 32px"></i
+            ><i class="fa-solid fa-pen" id="pen"></i
           ></span>
           <span class="tooltip">Paint tools</span>
         </li>
@@ -51,7 +52,7 @@
           <i class="fa-solid fa-shapes"></i>
           <span class="features-item-select"
             ><i class="fa-solid fa-circle"></i
-            ><i class="fa-solid fa-square" style="margin-left: 32px"></i
+            ><i class="fa-solid fa-square" style="margin-left: 32px" id="rectangle"></i
             ><i class="fa-solid fa-play" style="margin-left: 32px"></i
           ></span>
           <span class="tooltip">Shapes</span>
@@ -116,6 +117,25 @@
       integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
       crossorigin="anonymous"
     ></script>
+
+    <!-- Functionalities -->
+
+    <script src="./JS/global.js"></script>
     <script src="./JS/sizing.js"></script>
+    <script src="./JS/drawLine.js"></script>
+    <script src="./JS/drawRectangle.js"></script>
+
+    <!-- Change drawing tools -->
+    <script type="text/javascript">
+      $(() => {
+        currentFunction = new DrawingLine(contextReal); // Default drawing tool
+        $("#rectangle").click(() => {
+          currentFunction = new DrawingRectangle(contextReal, contextDraft);
+        });
+        $("#pen").click(() => {
+          currentFunction = new DrawingLine(contextReal);
+        });
+      });
+    </script>
   </body>
 </html>
