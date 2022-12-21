@@ -51,9 +51,21 @@
         <li class="features-item">
           <i class="fa-solid fa-shapes"></i>
           <span class="features-item-select"
-            ><i class="fa-solid fa-circle"></i
-            ><i class="fa-solid fa-square" style="margin-left: 32px" id="rectangle"></i
-            ><i class="fa-solid fa-play" style="margin-left: 32px"></i
+            ><i
+              class="fa-solid fa-circle"
+              style="margin-left: 32px"
+              id="circle"
+            ></i
+            ><i
+              class="fa-solid fa-square"
+              style="margin-left: 32px"
+              id="rectangle"
+            ></i
+            ><i
+              class="fa-solid fa-play"
+              style="margin-left: 32px"
+              id="triangle"
+            ></i
           ></span>
           <span class="tooltip">Shapes</span>
         </li>
@@ -125,6 +137,8 @@
     <script src="./JS/pen.js"></script>
     <script src="./JS/brush.js"></script>
     <script src="./JS/drawRectangle.js"></script>
+    <script src="./JS/drawCircle.js"></script>
+    <script src="./JS/drawTriangle.js"></script>
     <script src="./JS/eraser.js"></script>
 
     <!-- Change drawing tools -->
@@ -139,6 +153,12 @@
         });
         $("#rectangle").click(() => {
           currentFunction = new DrawingRectangle(contextReal, contextDraft);
+        });
+        $("#circle").click(() => {
+          currentFunction = new DrawingCircle(contextReal, contextDraft);
+        });
+        $("#triangle").click(() => {
+          currentFunction = new DrawingTriangle(contextReal, contextDraft);
         });
         $("#eraser").click(() => {
           currentFunction = new Eraser(contextReal, contextDraft);
