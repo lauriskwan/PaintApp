@@ -32,7 +32,7 @@
 
       <div class="message">
         <i class="message-icon bx bx-message-square-edit"></i>
-        <span class="message-text">New Mesage</span>
+        <span class="message-text" id="toolExplain">Pick a tool!</span>
         <span class="tooltip">New Mesage</span>
       </div>
 
@@ -148,17 +148,58 @@
         $("#pen").click(() => {
           currentFunction = new Pen(contextReal);
         });
+
+        $("#pen").mouseover(function () {
+          $("#toolExplain").html("Pen Tool");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("Pick a tool!");
+          });
+        });
+
         $("#brush").click(() => {
           currentFunction = new Brush(contextReal);
         });
+        $("#brush").mouseover(function () {
+          $("#toolExplain").html("Brush Tool");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("Pick a tool!");
+          });
+        });
+
         $("#rectangle").click(() => {
           currentFunction = new DrawingRectangle(contextReal, contextDraft);
         });
+        $("#rectangle").mouseover(function () {
+          $("#toolExplain").html("Rectangle Tool");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("Pick a tool!");
+          });
+        });
+
         $("#circle").click(() => {
           currentFunction = new DrawingCircle(contextReal, contextDraft);
         });
+
+        $("#circle").mouseover(function () {
+          $("#toolExplain").html("Circle Tool");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("Pick a tool!");
+          });
+        });
         $("#triangle").click(() => {
           currentFunction = new DrawingTriangle(contextReal, contextDraft);
+        });
+
+        $("#triangle").mouseover(function () {
+          $("#toolExplain").html("Triangle Tool");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("Pick a tool!");
+          });
         });
         $("#eraser").click(() => {
           currentFunction = new Eraser(contextReal, contextDraft);
