@@ -40,11 +40,19 @@
 
       <ul class="features-list">
         <li class="features-item">
-          <i class="fa-solid fa-paintbrush"></i>
+          <i class="fa-solid fa-pen"></i>
           <span class="features-item-select"
-            ><i class="fa-solid fa-paintbrush items-selected" id="brush"></i
-            ><i class="fa-solid fa-spray-can" style="margin-left: 32px"></i
             ><i class="fa-solid fa-pen" id="pen"></i
+            ><i
+              class="fa-solid fa-paintbrush items-selected"
+              id="brush"
+              style="margin-left: 29px"
+            ></i
+            ><i
+              class="fa-solid fa-spray-can"
+              style="margin-left: 30px"
+              id="spray"
+            ></i
           ></span>
           <span class="tooltip">Paint tools</span>
         </li>
@@ -52,8 +60,14 @@
           <i class="fa-solid fa-shapes"></i>
           <span class="features-item-select"
             ><i
+              class="fa-solid fa-minus"
+              id="line"
+              style="margin-left: 28px"
+            ></i
+            ><i class="fa-solid fa-bezier-curve" id="bezierCurve" style="margin-left: 30px"></i
+            ><i
               class="fa-solid fa-circle"
-              style="margin-left: 32px"
+              style="margin-left: 28px"
               id="circle"
             ></i
             ><i
@@ -63,11 +77,11 @@
             ></i
             ><i
               class="fa-solid fa-play"
-              style="margin-left: 32px"
+              style="margin-left: 32px; margin-right: 5px"
               id="triangle"
             ></i
           ></span>
-          <span class="tooltip">Shapes</span>
+          <span class="tooltip">Lines and shapes</span>
         </li>
         <li class="features-item">
           <i class="fa-solid fa-eraser" id="eraser"></i>
@@ -103,7 +117,7 @@
           <span class="tooltip">Redo</span>
         </li>
         <li class="config-item">
-          <i class="fa-solid fa-trash"></i>
+          <i class="fa-solid fa-trash" id="clear"></i>
           <span class="tooltip">Clear</span>
         </li>
         <li class="config-item">
@@ -136,6 +150,9 @@
     <script src="./JS/sizing.js"></script>
     <script src="./JS/pen.js"></script>
     <script src="./JS/brush.js"></script>
+    <script src="./JS/spray.js"></script>
+    <script src="./JS/drawLine.js"></script>
+    <script src="./JS/bezierCurve.js"></script>
     <script src="./JS/drawRectangle.js"></script>
     <script src="./JS/drawCircle.js"></script>
     <script src="./JS/drawTriangle.js"></script>
@@ -166,6 +183,18 @@
           $(this).mouseleave(function () {
             $("#toolExplain").html("Pick a tool!");
           });
+        });
+
+        $("#spray").click(() => {
+          currentFunction = new Spray(contextReal);
+        });
+
+        $("#line").click(() => {
+          currentFunction = new DrawingLine(contextReal, contextDraft);
+        });
+
+        $("#bezierCurve").click(() => {
+          currentFunction = new BezierCurve(contextReal, contextDraft);
         });
 
         $("#rectangle").click(() => {
@@ -203,6 +232,9 @@
         });
         $("#eraser").click(() => {
           currentFunction = new Eraser(contextReal, contextDraft);
+        });
+        $("#clear").click(() => {
+          contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         });
       });
     </script>
