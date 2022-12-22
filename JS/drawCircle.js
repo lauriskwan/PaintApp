@@ -7,7 +7,7 @@ class DrawingCircle extends PaintFunction {
   }
   onMouseDown(coord, event) {
     console.log(coord);
-    this.contextReal.fillStyle = "#000000";
+    this.contextReal.fillStyle = currentColor;
     // variable assignment  - this.origX = coord[0]
     this.origX = coord[0];
     this.origY = coord[1];
@@ -22,7 +22,7 @@ class DrawingCircle extends PaintFunction {
       0,
       2 * Math.PI
     );
-    this.contextDraft.fillStyle = "#000000";
+    this.contextDraft.fillStyle = currentColor;
     this.contextDraft.fill();
   }
   onMouseMove() {}
@@ -36,9 +36,9 @@ class DrawingCircle extends PaintFunction {
       0,
       2 * Math.PI
     );
-    this.contextReal.fillStyle = "#000000";
+    this.contextReal.fillStyle = currentColor;
     this.contextReal.shadowBlur = 0;
-    this.contextReal.shadowColor = "#000000";
+    this.contextReal.shadowColor = currentColor;
     this.contextReal.fill();
     // this.contextReal.lineWidth = 5;
     // this.contextReal.strokeStyle = '#9370DB';

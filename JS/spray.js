@@ -18,7 +18,7 @@ class Spray extends PaintFunction {
 
   // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
-    this.context.fillStyle = "#000000";
+    this.context.fillStyle = currentColor;
     contextReal.lineJoin = contextReal.lineCap = "round";
     origX = coord[0];
     origY = coord[1];

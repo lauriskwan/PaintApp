@@ -8,7 +8,7 @@ class Pen extends PaintFunction {
   // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
     // Fill in the color
-    this.context.strokeStyle = "#000000";
+    this.context.strokeStyle = currentColor;
     // Kind of line
     this.context.lineCap = "round";
     // Width of line
