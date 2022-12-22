@@ -24,7 +24,7 @@ class DrawingTriangle extends PaintFunction {
   onMouseUp(coord) {
     this.contextReal.fillStyle = currentColor;
     this.contextReal.shadowBlur = 0;
-    this.contextReal.shadowColor = "#000000";
+    this.contextReal.shadowColor = currentColor;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextReal.beginPath(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextReal.moveTo(this.origX, this.origY);

@@ -29,7 +29,7 @@ class BezierCurve extends PaintFunction{
             this.contextDraft.lineTo(coord[0], coord[1]);
 
             this.contextDraft.lineWidth = 5;
-            this.contextDraft.strokeStyle = "#000000";
+            this.contextDraft.strokeStyle = currentColor;
             // this.contextDraft.shadowBlur = 0;
             // this.contextDraft.shadowColor = "#000000";
 
@@ -44,13 +44,13 @@ class BezierCurve extends PaintFunction{
             this.contextDraft.stroke();
 
             this.contextDraft.lineWidth = 5;
-            this.contextDraft.strokeStyle = "#000000";
+            this.contextDraft.strokeStyle = currentColor;
             // this.contextDraft.shadowBlur = 0;
             // this.contextDraft.shadowColor = currentColor;
 
             this.contextDraft.beginPath();
             this.contextDraft.arc(coord[0], coord[1],10, 0, 2 * Math.PI);
-            this.contextDraft.fillStyle = 'black';
+            this.contextDraft.fillStyle = currentColor;
             this.contextDraft.fill();
         }
 
@@ -76,7 +76,7 @@ class BezierCurve extends PaintFunction{
             this.contextDraft.lineTo(coord[0], coord[1]);
 
             this.contextDraft.lineWidth = 5;
-            this.contextDraft.strokeStyle = "#000000";
+            this.contextDraft.strokeStyle = currentColor;
             // this.contextDraft.shadowBlur = 0;
             // this.contextDraft.shadowColor = currentColor;
             this.contextDraft.stroke();
@@ -84,7 +84,7 @@ class BezierCurve extends PaintFunction{
             // CIRCLE
             this.contextDraft.beginPath();
             this.contextDraft.arc((coord[0]+this.origX)/2, (coord[1]+this.origY)/2,10, 0, 2 * Math.PI);
-            this.contextDraft.fillStyle = 'black';
+            this.contextDraft.fillStyle = currentColor;
             this.contextDraft.fill();
 
             this.lineMade = true;
@@ -97,7 +97,7 @@ class BezierCurve extends PaintFunction{
             this.contextReal.quadraticCurveTo(coord[0], coord[1],this.lineXEnd, this.lineYEnd);
 
             this.contextReal.lineWidth = 5;
-            this.contextReal.strokeStyle = "#000000";
+            this.contextReal.strokeStyle = currentColor;
             // this.contextReal.shadowBlur = 0;
             // this.contextReal.shadowColor = currentColor;
             this.contextReal.stroke();
