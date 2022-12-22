@@ -27,29 +27,52 @@ canvasContainer.style.marginLeft = `${fullWidth - canvasReal.width}px`;
 
 // --- Sizing the collapsed side bar ---
 
-  let sideBar = document.querySelector(".side-bar");
+let sideBar = document.querySelector(".side-bar");
+let triggerOpen = document.querySelectorAll(".triggerOpen");
+let arrowCollapse = document.querySelector("#title__icon");
+let selectPalette = document.querySelector("#palette");
 
-{
-  let arrowCollapse = document.querySelector("#title__icon");
-  sideBar.onclick = () => {
-    sideBar.classList.toggle("collapse");
-    arrowCollapse.classList.toggle("collapse");
-    if (arrowCollapse.classList.contains("collapse")) {
-      arrowCollapse.classList = "fa-solid fa-caret-right title__icon collapse";
-    } else {
-      arrowCollapse.classList = "fa-solid fa-caret-left title__icon";
-    }
+for (let i of triggerOpen) {
+  i.onclick = () => {
     if (sideBar.classList.contains("collapse")) {
-      sideBar.style.width = `${fullWidth - canvasReal.width}px`;
-    } else {
-      sideBar.style.width = "350px";
-    }
+      sideBar.classList.remove("collapse");
+      arrowCollapse.classList.remove("collapse");
+      if (arrowCollapse.classList.contains("collapse")) {
+        arrowCollapse.classList =
+          "fa-solid fa-caret-right title__icon collapse";
+      } else {
+        arrowCollapse.classList = "fa-solid fa-caret-left title__icon";
+      }
+      if (sideBar.classList.contains("collapse")) {
+        sideBar.style.width = `${fullWidth - canvasReal.width}px`;
+      } else {
+        sideBar.style.width = "350px";
+      }
 
-    // Hide tooltips on click, otherwise tooltips will keep hovering after the side bar is collapsed
-    
-    $(".tooltip").css("display", "none");
-    setTimeout(() => {
-          $(".tooltip").css("display", "unset");
-    }, 500)
+      $(".tooltip").css("display", "none");
+      setTimeout(() => {
+        $(".tooltip").css("display", "unset");
+      }, 500);
+    }
   };
 }
+
+arrowCollapse.onclick = () => {
+  sideBar.classList.toggle("collapse");
+  arrowCollapse.classList.toggle("collapse");
+  if (arrowCollapse.classList.contains("collapse")) {
+    arrowCollapse.classList = "fa-solid fa-caret-right title__icon collapse";
+  } else {
+    arrowCollapse.classList = "fa-solid fa-caret-left title__icon";
+  }
+  if (sideBar.classList.contains("collapse")) {
+    sideBar.style.width = `${fullWidth - canvasReal.width}px`;
+  } else {
+    sideBar.style.width = "350px";
+  }
+
+  $(".tooltip").css("display", "none");
+  setTimeout(() => {
+    $(".tooltip").css("display", "unset");
+  }, 500);
+};

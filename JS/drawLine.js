@@ -1,3 +1,5 @@
+let currentLineWidth = 1.5;
+
 class DrawingLine extends PaintFunction {
   constructor(contextReal, contextDraft) {
     super();
@@ -17,7 +19,7 @@ class DrawingLine extends PaintFunction {
     this.contextDraft.lineJoin = "round";
 
     this.contextDraft.lineCap = "round";
-    this.contextDraft.lineWidth = 5;
+    this.contextDraft.lineWidth = currentLineWidth;
     this.contextDraft.beginPath();
     this.contextDraft.moveTo(this.origX, this.origY);
     this.contextDraft.lineTo(coord[0], coord[1]);
@@ -36,7 +38,7 @@ class DrawingLine extends PaintFunction {
     this.contextReal.lineCap = "round";
 
 
-    this.contextReal.lineWidth = 5;
+    this.contextReal.lineWidth = currentLineWidth;
     this.contextReal.beginPath();
     this.contextReal.moveTo(this.origX, this.origY);
     this.contextReal.lineTo(coord[0], coord[1]);
