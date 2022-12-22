@@ -26,6 +26,7 @@ $("#canvas-draft").mouseup(function (e) {
   let mouseX = e.offsetX;
   let mouseY = e.offsetY;
   currentFunction.onMouseUp([mouseX, mouseY], e);
+  saveCurrent();
 });
 
 $("#canvas-draft").mouseleave(function (e) {
