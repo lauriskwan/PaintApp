@@ -94,10 +94,10 @@
           <span class="features-item-select">Placeholder</span>
           <span class="tooltip">Eraser</span>
         </li>
-        <li class="features-item">
-          <i class="fa-solid fa-palette"></i>
+        <li class="features-item" id="palette">
+          <i class="fa-solid fa-palette" id="paletteIcon"></i>
           <span class="features-item-select"
-            ><i
+            ><!--<i
               id="color-button-blue"
               class="fa-solid fa-square"
               style="margin-left: 32px; margin-right: 5px"
@@ -116,7 +116,8 @@
               id="color-button-green"
               class="fa-solid fa-square"
               style="margin-left: 32px; margin-right: 5px"
-            ></i>
+            ></i>-->
+            <input type="color" value="#000000" id="colorPicker" />
           </span>
           <span class="tooltip">Palette</span>
         </li>
@@ -142,7 +143,9 @@
 
       <ul class="config-list">
         <li class="config-item">
-          <i class="fa-solid fa-rotate-left" id="undo"> <span class="status"></span></i>
+          <i class="fa-solid fa-rotate-left" id="undo">
+            <span class="status"></span
+          ></i>
           <span class="tooltip">Undo</span>
         </li>
         <li class="config-item">
@@ -158,6 +161,14 @@
           <span class="tooltip">Save</span>
         </li>
       </ul>
+
+      <div class="tipbox">
+        <!-- <div class="tiptitle">wfw</div> -->
+
+        <div class="wheel" id="colorWheelDemo"></div>
+
+        <!-- <div>wfwg</div> -->
+      </div>
     </nav>
 
     <div class="canvas-container">
@@ -189,8 +200,8 @@
     <script src="./JS/drawRectangle.js"></script>
     <script src="./JS/drawCircle.js"></script>
     <script src="./JS/drawTriangle.js"></script>
-    <script src="./JS/undoRedo.js"></script>
     <script src="./JS/eraser.js"></script>
+    <script src="./JS/undoRedo.js"></script>
     <script src="./JS/colorPicker.js"></script>
     <script src="./JS/textBox.js"></script>
 
@@ -260,6 +271,7 @@
         $("#rectangle").click(() => {
           currentFunction = new DrawingRectangle(contextReal, contextDraft);
         });
+
         $("#rectangle").mouseover(function () {
           $("#toolExplain").html("Rectangle Tool");
 
@@ -312,10 +324,10 @@
           currentFunction = new Eraser(contextReal, contextDraft);
         });
         $("#undo").click(() => {
-          undo()
+          undo();
         });
         $("#redo").click(() => {
-          redo()
+          redo();
         });
         $("#clear").click(() => {
           saveCurrent();
