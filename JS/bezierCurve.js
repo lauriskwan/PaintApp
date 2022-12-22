@@ -84,7 +84,7 @@ class BezierCurve extends PaintFunction{
             // CIRCLE
             this.contextDraft.beginPath();
             this.contextDraft.arc((coord[0]+this.origX)/2, (coord[1]+this.origY)/2,10, 0, 2 * Math.PI);
-            this.contextDraft.fillStyle = 'currentColor;
+            this.contextDraft.fillStyle = currentColor;
             this.contextDraft.fill();
 
             this.lineMade = true;
