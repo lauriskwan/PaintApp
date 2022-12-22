@@ -32,7 +32,9 @@
 
       <div class="message">
         <i class="message-icon bx bx-message-square-edit"></i>
-        <span class="message-text" id="toolExplain">Pick a tool!</span>
+        <span class="message-text" id="toolExplain"
+          >............................</span
+        >
         <span class="tooltip">New Mesage</span>
       </div>
 
@@ -99,30 +101,34 @@
               id="color-button-blue"
               class="fa-solid fa-square"
               style="margin-left: 32px; margin-right: 5px"
-            ></i
-          >
+            ></i>
             <i
               id="color-button-yellow"
               class="fa-solid fa-square"
               style="margin-left: 32px; margin-right: 5px"
             ></i>
-                 <i
+            <i
               id="color-button-red"
               class="fa-solid fa-square"
               style="margin-left: 32px; margin-right: 5px"
             ></i>
-                    <i
+            <i
               id="color-button-green"
               class="fa-solid fa-square"
               style="margin-left: 32px; margin-right: 5px"
             ></i>
-        
-        </span>
+          </span>
           <span class="tooltip">Palette</span>
         </li>
         <li class="features-item">
           <i class="fa-solid fa-t"></i>
-          <span class="features-item-select">Placeholder</span>
+          <span class="features-item-select"
+            ><i
+              id="textBox"
+              class="fa-solid fa-t"
+              style="margin-left: 32px; margin-right: 5px"
+            ></i
+          ></span>
           <span class="tooltip">Insert text</span>
         </li>
         <li class="features-item">
@@ -185,6 +191,7 @@
     <script src="./JS/drawTriangle.js"></script>
     <script src="./JS/eraser.js"></script>
     <script src="./JS/colorPicker.js"></script>
+    <script src="./JS/textBox.js"></script>
 
     <!-- Change drawing tools -->
     <script type="text/javascript">
@@ -198,7 +205,7 @@
           $("#toolExplain").html("Pen Tool");
 
           $(this).mouseleave(function () {
-            $("#toolExplain").html("Pick a tool!");
+            $("#toolExplain").html("............................");
           });
         });
 
@@ -209,7 +216,7 @@
           $("#toolExplain").html("Brush Tool");
 
           $(this).mouseleave(function () {
-            $("#toolExplain").html("Pick a tool!");
+            $("#toolExplain").html("............................");
           });
         });
 
@@ -217,12 +224,36 @@
           currentFunction = new Spray(contextReal);
         });
 
+        $("#spray").mouseover(function () {
+          $("#toolExplain").html("Spray tool");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("............................");
+          });
+        });
+
         $("#line").click(() => {
           currentFunction = new DrawingLine(contextReal, contextDraft);
         });
 
+        $("#line").mouseover(function () {
+          $("#toolExplain").html("Straight line tool");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("............................");
+          });
+        });
+
         $("#bezierCurve").click(() => {
           currentFunction = new BezierCurve(contextReal, contextDraft);
+        });
+
+        $("#bezierCurve").mouseover(function () {
+          $("#toolExplain").html("Bezier Curve Tool");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("............................");
+          });
         });
 
         $("#rectangle").click(() => {
@@ -232,7 +263,7 @@
           $("#toolExplain").html("Rectangle Tool");
 
           $(this).mouseleave(function () {
-            $("#toolExplain").html("Pick a tool!");
+            $("#toolExplain").html("............................");
           });
         });
 
@@ -244,7 +275,7 @@
           $("#toolExplain").html("Circle Tool");
 
           $(this).mouseleave(function () {
-            $("#toolExplain").html("Pick a tool!");
+            $("#toolExplain").html("............................");
           });
         });
         $("#triangle").click(() => {
@@ -255,9 +286,27 @@
           $("#toolExplain").html("Triangle Tool");
 
           $(this).mouseleave(function () {
-            $("#toolExplain").html("Pick a tool!");
+            $("#toolExplain").html("............................");
           });
         });
+
+        $("#textBox").on("click", function () {
+          currentFunction = new TextBox(
+            contextReal,
+            contextDraft,
+            currentColor
+          );
+          $(`.wrapper`).toggle();
+        });
+
+        $("#textBox").mouseover(function () {
+          $("#toolExplain").html("Text Box");
+
+          $(this).mouseleave(function () {
+            $("#toolExplain").html("............................");
+          });
+        });
+
         $("#eraser").click(() => {
           currentFunction = new Eraser(contextReal, contextDraft);
         });
