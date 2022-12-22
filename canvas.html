@@ -142,11 +142,11 @@
 
       <ul class="config-list">
         <li class="config-item">
-          <i class="fa-solid fa-rotate-left"> <span class="status"></span></i>
+          <i class="fa-solid fa-rotate-left" id="undo"> <span class="status"></span></i>
           <span class="tooltip">Undo</span>
         </li>
         <li class="config-item">
-          <i class="fa-solid fa-rotate-right"></i>
+          <i class="fa-solid fa-rotate-right" id="redo"></i>
           <span class="tooltip">Redo</span>
         </li>
         <li class="config-item">
@@ -189,6 +189,7 @@
     <script src="./JS/drawRectangle.js"></script>
     <script src="./JS/drawCircle.js"></script>
     <script src="./JS/drawTriangle.js"></script>
+    <script src="./JS/undoRedo.js"></script>
     <script src="./JS/eraser.js"></script>
     <script src="./JS/colorPicker.js"></script>
     <script src="./JS/textBox.js"></script>
@@ -310,7 +311,14 @@
         $("#eraser").click(() => {
           currentFunction = new Eraser(contextReal, contextDraft);
         });
+        $("#undo").click(() => {
+          undo()
+        });
+        $("#redo").click(() => {
+          redo()
+        });
         $("#clear").click(() => {
+          saveCurrent();
           contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         });
       });
