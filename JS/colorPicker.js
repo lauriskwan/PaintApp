@@ -1,3 +1,10 @@
+const colorCode = document.querySelector(`input[type=color]`);
+
+colorCode.addEventListener("change", function () {
+  console.log(colorCode.value);
+  currentColor = `${colorCode.value}`;
+});
+
 //
 // HOVER EFFECT -------------------------
 //

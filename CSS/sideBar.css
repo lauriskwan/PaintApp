@@ -18,14 +18,14 @@
   position: relative;
   margin-bottom: 2.1rem;
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 .title {
   display: flex;
   align-items: center;
 }
 .title__name {
-  margin-left: 0.9rem;
+  margin-left: 0.6rem;
   white-space: nowrap;
 }
 .title__button {
@@ -38,6 +38,8 @@
   border: none;
   cursor: pointer;
 }
+
+/* --- Palette ---  */
 #color-button-blue {
   color: blue;
 }
@@ -54,6 +56,31 @@
   color: green;
 }
 
+#colorPicker {
+  margin-right: 2px;
+}
+
+[type='color'] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--grey-color);
+}
+
+[type='color']::-webkit-color-swatch-wrapper {
+  padding: 0;
+    border: none
+}
+
+[type='color']::-webkit-color-swatch {
+  border-radius: 50%;
+    border: 1px solid var(--grey-color);
+}
+/*     */
 
 .title__icon {
   font-size: 1.8rem;
@@ -169,12 +196,25 @@
   padding-bottom: 0.9rem;
   color: var(--grey-color);
   list-style: none;
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 300;
   border-bottom: 1px solid #292932;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.tipbox {
+  padding-top: 2.1rem;
+  color: var(--white-color);
+  font-size: 1rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.tiptitle {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
 }
 .tooltip {
   min-width: 10vw;
@@ -201,7 +241,8 @@
   opacity: 1;
   visibility: visible;
 }
-.side-bar.collapse .tooltip {
+.side-bar.collapse .tooltip,
+.side-bar.collapse .tipbox {
   visibility: hidden;
   display: block;
 }
