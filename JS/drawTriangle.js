@@ -7,12 +7,12 @@ class DrawingTriangle extends PaintFunction {
   }
   onMouseDown(coord, event) {
     // console.log(coord);
-    this.contextReal.fillStyle = "#000000";
+    this.contextReal.fillStyle = currentColor;
     this.origX = coord[0];
     this.origY = coord[1];
   }
   onDragging(coord, event) {
-    this.contextDraft.fillStyle = "#000000";
+    this.contextDraft.fillStyle = currentColor;
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextDraft.beginPath(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextDraft.moveTo(this.origX, this.origY);
@@ -22,7 +22,7 @@ class DrawingTriangle extends PaintFunction {
   }
   onMouseMove() {}
   onMouseUp(coord) {
-    this.contextReal.fillStyle = "#000000";
+    this.contextReal.fillStyle = currentColor;
     this.contextReal.shadowBlur = 0;
     this.contextReal.shadowColor = "#000000";
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
