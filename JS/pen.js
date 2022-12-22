@@ -1,3 +1,5 @@
+let currentPenLineWidth = 1.5;
+
 class Pen extends PaintFunction {
   
   constructor(contextReal) {
@@ -12,7 +14,7 @@ class Pen extends PaintFunction {
     // Kind of line
     this.context.lineCap = "round";
     // Width of line
-    this.context.lineWidth = 1;
+    this.context.lineWidth = currentPenLineWidth;
     // Drawing the line here
     this.context.beginPath();                 // Reset previous path every time mouse down occurs
     this.context.moveTo(coord[0], coord[1]);

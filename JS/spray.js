@@ -1,3 +1,5 @@
+let currentSprayArea = 30;
+
 function getRandomFloat(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -25,7 +27,7 @@ class Spray extends PaintFunction {
     timeout = setTimeout(function draw() {
       for (var i = density; i > 0; i--) {
         var angle = getRandomFloat(0, Math.PI * 2);
-        var radius = getRandomFloat(0, 20);
+        var radius = getRandomFloat(0, currentSprayArea);
         var randomX = origX + radius * Math.cos(angle);
         var randomY = origY + radius * Math.sin(angle);
 
@@ -38,8 +40,8 @@ class Spray extends PaintFunction {
       }
 
       if (!timeout) return;
-      timeout = setTimeout(draw, 50);
-    }, 50);
+      timeout = setTimeout(draw, 30);
+    }, 30);
   }
   onDragging(coord, event) {
     origX = coord[0];

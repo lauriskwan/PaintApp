@@ -1,3 +1,5 @@
+let currentEraserSize = 5;
+
 class Eraser extends PaintFunction {
   constructor(contextReal) {
     super();
@@ -9,13 +11,13 @@ class Eraser extends PaintFunction {
     this.context.fillStyle = "#ffffff";
     // Start brushing
     this.context.beginPath(); // Reset previous path every time mouse down occurs
-    this.context.arc(coord[0], coord[1], 50, 0, Math.PI * 2);
+    this.context.arc(coord[0], coord[1], currentEraserSize, 0, Math.PI * 2);
     this.draw(coord[0], coord[1]); // gives a circle by clicking
   }
   onDragging(coord, event) {
     // Every time mouse down happens, dragging = true in global.js, thus triggering onDragging.
     this.context.beginPath(); // Reset previous path every time mouse down occurs
-    this.context.arc(coord[0], coord[1], 50, 0, Math.PI * 2);
+    this.context.arc(coord[0], coord[1], currentEraserSize, 0, Math.PI * 2);
     this.draw();
   }
   onMouseMove() {}

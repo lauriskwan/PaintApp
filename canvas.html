@@ -30,18 +30,18 @@
         </button>
       </div>
 
-      <div class="message">
+      <!-- <div class="message">
         <i class="message-icon bx bx-message-square-edit"></i>
         <span class="message-text" id="toolExplain"
           >............................</span
         >
         <span class="tooltip">New Mesage</span>
-      </div>
+      </div> -->
 
       <!-- Features list -->
 
       <ul class="features-list">
-        <li class="features-item">
+        <li class="features-item triggerOpen">
           <i class="fa-solid fa-pen" id="paintTool"></i>
           <span class="features-item-select"
             ><i class="fa-solid fa-pen" id="pen"></i
@@ -58,7 +58,7 @@
           ></span>
           <span class="tooltip">Paint tools</span>
         </li>
-        <li class="features-item">
+        <li class="features-item triggerOpen">
           <i class="fa-solid fa-shapes" id="LS"></i>
           <span class="features-item-select"
             ><i
@@ -91,35 +91,15 @@
         </li>
         <li class="features-item">
           <i class="fa-solid fa-eraser" id="eraser"></i>
-          <span class="features-item-select">Placeholder</span>
+          <span class="features-item-select"></span>
           <span class="tooltip">Eraser</span>
         </li>
-        <li class="features-item" id="palette">
+        <li class="features-item palette triggerOpen" id="palette">
           <i class="fa-solid fa-palette" id="paletteIcon"></i>
-          <span class="features-item-select"
-            ><!--<i
-              id="color-button-blue"
-              class="fa-solid fa-square"
-              style="margin-left: 32px; margin-right: 5px"
-            ></i>
-            <i
-              id="color-button-yellow"
-              class="fa-solid fa-square"
-              style="margin-left: 32px; margin-right: 5px"
-            ></i>
-            <i
-              id="color-button-red"
-              class="fa-solid fa-square"
-              style="margin-left: 32px; margin-right: 5px"
-            ></i>
-            <i
-              id="color-button-green"
-              class="fa-solid fa-square"
-              style="margin-left: 32px; margin-right: 5px"
-            ></i>-->
+          <span class="features-item-select">
             <input type="color" value="#000000" id="colorPicker" />
           </span>
-          <span class="tooltip">Palette</span>
+          <span class="tooltip">Colour Picker</span>
         </li>
         <li class="features-item">
           <i class="fa-solid fa-t"></i>
@@ -134,7 +114,7 @@
         </li>
         <li class="features-item">
           <i class="fa-solid fa-fill"></i>
-          <span class="features-item-select">Placeholder</span>
+          <span class="features-item-select"></span>
           <span class="tooltip">Fill</span>
         </li>
       </ul>
@@ -162,12 +142,31 @@
         </li>
       </ul>
 
-      <div class="tipbox">
-        <!-- <div class="tiptitle">wfw</div> -->
-
-        <div class="wheel" id="colorWheelDemo"></div>
-
-        <!-- <div>wfwg</div> -->
+      <div class="rangeBar">
+        <div class="rangeContainer" id="penRangeContainer">
+          <label class="label">Pen Width</label>
+          <input type="range" id="penRange" min="0.5" max="5.5" value="1.5" />
+        </div>
+        <div class="rangeContainer" id="brushRangeContainer">
+          <label class="label">Brush Size</label>
+          <input type="range" id="brushRange" min="10" max="50" value="20" />
+        </div>
+        <div class="rangeContainer" id="sprayRangeContainer">
+          <label class="label">Spray Area</label>
+        <input type="range" id="sprayRange" min="10" max="100" value="30" />
+        </div>
+        <div class="rangeContainer" id="lineRangeContainer">
+          <label class="label">Line Width</label>
+        <input type="range" id="lineRange" min="0.5" max="5.5" value="1.5" />
+        </div>
+        <div class="rangeContainer" id="bCurveRangeContainer">
+          <label class="label">Bezier Curve Width</label>
+        <input type="range" id="bCurveRange" min="0.5" max="5.5" value="1.5" />
+        </div>
+        <div class="rangeContainer" id="eraserRangeContainer">
+          <label class="label">Eraser Size</label>
+        <input type="range" id="eraserRange" min="5" max="30" value="5" />
+        </div>
       </div>
     </nav>
 
@@ -190,6 +189,7 @@
 
     <!-- Functionalities -->
     <script src="./JS/iconChanger.js"></script>
+    <script src="./JS/changeWidthAndSize.js"></script>
     <script src="./JS/global.js"></script>
     <script src="./JS/sizing.js"></script>
     <script src="./JS/pen.js"></script>
@@ -211,6 +211,7 @@
         currentFunction = new Pen(contextReal); // Default drawing tool
         $("#pen").click(() => {
           currentFunction = new Pen(contextReal);
+          changePenWidth();
         });
 
         $("#pen").mouseover(function () {
@@ -223,6 +224,7 @@
 
         $("#brush").click(() => {
           currentFunction = new Brush(contextReal);
+          changeBrushSize();
         });
         $("#brush").mouseover(function () {
           $("#toolExplain").html("Brush Tool");
@@ -234,6 +236,7 @@
 
         $("#spray").click(() => {
           currentFunction = new Spray(contextReal);
+          changeSprayArea();
         });
 
         $("#spray").mouseover(function () {
@@ -246,6 +249,7 @@
 
         $("#line").click(() => {
           currentFunction = new DrawingLine(contextReal, contextDraft);
+          changeLineWidth();
         });
 
         $("#line").mouseover(function () {
@@ -258,6 +262,7 @@
 
         $("#bezierCurve").click(() => {
           currentFunction = new BezierCurve(contextReal, contextDraft);
+          changeBCurveWidth();
         });
 
         $("#bezierCurve").mouseover(function () {
@@ -270,6 +275,7 @@
 
         $("#rectangle").click(() => {
           currentFunction = new DrawingRectangle(contextReal, contextDraft);
+          hideSize();
         });
 
         $("#rectangle").mouseover(function () {
@@ -282,6 +288,7 @@
 
         $("#circle").click(() => {
           currentFunction = new DrawingCircle(contextReal, contextDraft);
+          hideSize();
         });
 
         $("#circle").mouseover(function () {
@@ -293,6 +300,7 @@
         });
         $("#triangle").click(() => {
           currentFunction = new DrawingTriangle(contextReal, contextDraft);
+          hideSize();
         });
 
         $("#triangle").mouseover(function () {
@@ -310,6 +318,7 @@
             currentColor
           );
           $(`.wrapper`).toggle();
+          hideSize();
         });
 
         $("#textBox").mouseover(function () {
@@ -322,16 +331,20 @@
 
         $("#eraser").click(() => {
           currentFunction = new Eraser(contextReal, contextDraft);
+          changeEraserSize();
         });
         $("#undo").click(() => {
           undo();
+          hideSize();
         });
         $("#redo").click(() => {
           redo();
+          hideSize();
         });
         $("#clear").click(() => {
           saveCurrent();
           contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+          hideSize();
         });
       });
     </script>
