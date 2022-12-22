@@ -6,7 +6,7 @@ class Brush extends PaintFunction {
 
   onMouseDown(coord, event) {
     // Fill in the color
-    this.context.fillStyle = "#000000";
+    this.context.fillStyle = currentColor;
     // Start brushing
     this.context.beginPath(); // Reset previous path every time mouse down occurs
     this.context.arc(coord[0], coord[1], 50, 0, Math.PI * 2)
