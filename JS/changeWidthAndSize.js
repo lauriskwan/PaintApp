@@ -19,7 +19,7 @@ function changePenWidth() {
   $(`#bCurveRangeContainer`).hide();
   $(`#eraserRangeContainer`).hide();
   $(`#penRangeContainer`).show();
-  $(`#penRangeContainer`).css("display", "flex");
+  $(`#penRangeContainer`).css("display", "flex");  // without css it returns display: block
 
   penRange.addEventListener("change", function () {
     currentPenLineWidth = penRange.value;
