@@ -39,6 +39,7 @@ Edit:
 
   
  **Section 4 - Credit**
+ 
  This project is done by Lauris Kwan and Sam Yip
 
 
