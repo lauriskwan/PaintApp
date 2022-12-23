@@ -1,15 +1,17 @@
 ********   Canvas for the creative  *******
 
-<b>Section 1 - What this project does<b>
+**Section 1 - What this project does**
+
 This is the proejct to showcase what we have learnt Javascript using class, inheritance, coordinates and other functions.
 
-Section 2 - Challenges
+**Section 2 - Challenges**
+
 The challenges we face is the modification of the side bar, where some of the formatting is not easy to change to what we wanted.
 The difference between canvas-draft and canvas-real also baffled us as it's not requried to be used in pen tool.
 Adding the color palette was a changllenge because we trialed many ways find a place the palette.
 Time constraint is also a major issue, there is just too many features we want to add. 
 
-Section 3 - How to use the site
+**Section 3 - How to use the site**
 
 Just load up canvas.html and let your imagination run wild.
 
@@ -36,7 +38,7 @@ Edit:
 
 
   
- Credit:
+ **Section 4 - Credit**
  This project is done by Lauris Kwan and Sam Yip
 
 
