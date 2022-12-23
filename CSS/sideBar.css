@@ -95,6 +95,7 @@
 }
 
 [type="range"] {
+  margin-bottom: 25px;
    width:250px;
    height:3px;
    -webkit-appearance:none;
@@ -279,7 +280,8 @@ i {
 }
 .side-bar.collapse .tooltip,
 .side-bar.collapse .tipbox,
-.side-bar.collapse .rangeBar {
+.side-bar.collapse .rangeBar,
+.side-bar.collapse #toolExplain {
   visibility: hidden;
   display: block;
 }
@@ -316,6 +318,7 @@ i {
   right: 50%;
   transform: translate(50%, -50%);
 }
-.hidden {
-  display: none;
+#toolExplain {
+  padding-top: 2.1rem;
+  margin-left: 20px;
 }

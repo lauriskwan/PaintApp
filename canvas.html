@@ -168,7 +168,9 @@
         <input type="range" id="eraserRange" min="5" max="30" value="5" />
         </div>
       </div>
+      <div id="toolExplain"></div>
     </nav>
+
 
     <div class="canvas-container">
       <canvas id="canvas-real"></canvas>
@@ -275,7 +277,7 @@
 
         $("#rectangle").click(() => {
           currentFunction = new DrawingRectangle(contextReal, contextDraft);
-          hideSize();
+          // hideSize();
         });
 
         $("#rectangle").mouseover(function () {
@@ -288,7 +290,7 @@
 
         $("#circle").click(() => {
           currentFunction = new DrawingCircle(contextReal, contextDraft);
-          hideSize();
+          // hideSize();
         });
 
         $("#circle").mouseover(function () {
@@ -300,7 +302,7 @@
         });
         $("#triangle").click(() => {
           currentFunction = new DrawingTriangle(contextReal, contextDraft);
-          hideSize();
+          // hideSize();
         });
 
         $("#triangle").mouseover(function () {
@@ -318,7 +320,7 @@
             currentColor
           );
           $(`.wrapper`).toggle();
-          hideSize();
+          // hideSize();
         });
 
         $("#textBox").mouseover(function () {
@@ -335,16 +337,16 @@
         });
         $("#undo").click(() => {
           undo();
-          hideSize();
+          // hideSize();
         });
         $("#redo").click(() => {
           redo();
-          hideSize();
+          // hideSize();
         });
         $("#clear").click(() => {
           saveCurrent();
           contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-          hideSize();
+          // hideSize();
         });
       });
     </script>
