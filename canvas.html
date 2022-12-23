@@ -102,7 +102,7 @@
           <span class="tooltip">Colour Picker</span>
         </li>
         <li class="features-item">
-          <i class="fa-solid fa-t"></i>
+          <i class="fa-solid fa-t" id="insertText"></i>
           <span class="features-item-select"
             ><i
               id="textBox"
@@ -206,6 +206,7 @@
     <script src="./JS/undoRedo.js"></script>
     <script src="./JS/colorPicker.js"></script>
     <script src="./JS/textBox.js"></script>
+    <script src="./JS/text.js"></script>
 
     <!-- Change drawing tools -->
     <script type="text/javascript">
@@ -322,6 +323,10 @@
           $(`.wrapper`).toggle();
           // hideSize();
         });
+
+        $("#insertText").click(function () {
+          currentFunction = new insertText(contextReal, contextDraft)
+        })
 
         $("#textBox").mouseover(function () {
           $("#toolExplain").html("Text Box");

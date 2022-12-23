@@ -24,7 +24,7 @@ class TextBox extends PaintFunction {
       input.style.width = 3000;
       input.style.font = styleGuide.font;
       input.placeholder = "To add text, click here, type, and push 'Enter'";
-      input.style.left = this.origX + 160 + "px"; //the position of input when you click mouse//
+      input.style.left = this.origX + 100 + "px"; //the position of input when you click mouse//
       input.style.top = this.origY + 0 + "px";
       input.id = "textBox";
       document.body.appendChild(input);
