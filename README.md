@@ -25,4 +25,4 @@ Edit:
 3. Clear
 4. Reset 
 
-![](readMe.png)
+![](readMe.jpg)
