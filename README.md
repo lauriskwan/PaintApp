@@ -4,6 +4,10 @@ Pick the color you want with color palette.
 
 Choose the tool to render your idea.
 
+Have some fun with it!
+
+List of functions are:
+
 Draw:
 1. Line Tool
 2. Brush Tool
