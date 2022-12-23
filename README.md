@@ -24,3 +24,5 @@ Edit:
 2. Undo
 3. Clear
 4. Reset 
+
+![](readMe.png)
