@@ -4,39 +4,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS only -->
-    <!-- <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    <link rel="apple-touch-icon" sizes="180x180" href="/./Assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/./Assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./Assets/favicon-16x16.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;700;800&display=swap"
       rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    /> -->
+    />
     <script
       src="https://kit.fontawesome.com/284f4100b8.js"
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./CSS/global.css" />
     <link rel="stylesheet" href="./CSS/sideBar.css" />
-    <title>Document</title>
+    <title>Canvas Painter</title>
   </head>
   <body>
+    <section class="loader">
+      <div class="loaderBox loaderArc"></div>
+      <div class="loaderBox loaderArc"></div>
+      <div class="loaderBox loaderArc"></div>
+      <div class="loaderTextContainer"><h1>Initiating Canvas</h1></div>
+    </section>
+
     <nav class="side-bar">
       <div class="title-wrapper">
         <div class="title">
-          <span class="title__name">Welcome, Creator!</span>
+          <span class="title__name"><h3>WELCOME, CREATOR!</h3></span>
         </div>
         <button class="title__button">
           <i class="fa-solid fa-caret-left title__icon" id="title__icon"></i>
         </button>
       </div>
-
-      <!-- <div class="message">
-        <i class="message-icon bx bx-message-square-edit"></i>
-        <span class="message-text" id="toolExplain"
-          >............................</span
-        >
-        <span class="tooltip">New Mesage</span>
-      </div> -->
 
       <!-- Features list -->
 
@@ -56,7 +57,7 @@
               id="spray"
             ></i
           ></span>
-          <span class="tooltip">Paint tools</span>
+          <span class="tooltip">PAINT TOOLS</span>
         </li>
         <li class="features-item triggerOpen">
           <i class="fa-solid fa-shapes" id="LS"></i>
@@ -74,7 +75,7 @@
             ><i
               class="fa-solid fa-circle"
               style="margin-left: 28px"
-              id="circle"
+              id="ellipse"
             ></i
             ><i
               class="fa-solid fa-square"
@@ -87,35 +88,29 @@
               id="triangle"
             ></i
           ></span>
-          <span class="tooltip">Lines and shapes</span>
-        </li>
-        <li class="features-item">
-          <i class="fa-solid fa-eraser" id="eraser"></i>
-          <span class="features-item-select"></span>
-          <span class="tooltip">Eraser</span>
+          <span class="tooltip">LINES & SHAPES</span>
         </li>
         <li class="features-item palette triggerOpen" id="palette">
           <i class="fa-solid fa-palette" id="paletteIcon"></i>
           <span class="features-item-select">
             <input type="color" value="#000000" id="colorPicker" />
           </span>
-          <span class="tooltip">Colour Picker</span>
+          <span class="tooltip">COLOR PICKER</span>
+        </li>
+        <li class="features-item">
+          <i class="fa-solid fa-eraser" id="eraser"></i>
+          <span class="features-item-select"></span>
+          <span class="tooltip">ERASER</span>
         </li>
         <li class="features-item">
           <i class="fa-solid fa-t" id="insertText"></i>
-          <span class="features-item-select"
-            ><i
-              id="textBox"
-              class="fa-solid fa-t"
-              style="margin-left: 32px; margin-right: 5px"
-            ></i
-          ></span>
-          <span class="tooltip">Insert text</span>
-        </li>
-        <li class="features-item">
-          <i class="fa-solid fa-fill"></i>
           <span class="features-item-select"></span>
-          <span class="tooltip">Fill</span>
+          <span class="tooltip">INSERT TEXT</span>
+        </li>
+        <li class="features-item" id="disabled">
+          <i class="fa-solid fa-fill fa-disabled" id="fill"></i>
+          <span class="features-item-select"></span>
+          <span class="tooltip">COMING SOON</span>
         </li>
       </ul>
 
@@ -126,63 +121,72 @@
           <i class="fa-solid fa-rotate-left" id="undo">
             <span class="status"></span
           ></i>
-          <span class="tooltip">Undo</span>
+          <span class="tooltip">UNDO</span>
         </li>
         <li class="config-item">
           <i class="fa-solid fa-rotate-right" id="redo"></i>
-          <span class="tooltip">Redo</span>
+          <span class="tooltip">REDO</span>
         </li>
         <li class="config-item">
           <i class="fa-solid fa-trash" id="clear"></i>
-          <span class="tooltip">Clear</span>
+          <span class="tooltip">CLEAR</span>
         </li>
         <li class="config-item">
-          <i class="fa-solid fa-download"></i>
-          <span class="tooltip">Save</span>
+          <i class="fa-solid fa-download" id="save"></i>
+          <a id="link"></a>
+          <span class="tooltip">SAVE</span>
         </li>
       </ul>
 
       <div class="rangeBar">
         <div class="rangeContainer" id="penRangeContainer">
-          <label class="label">Pen Width</label>
+          <label class="label">Pen width</label>
           <input type="range" id="penRange" min="0.5" max="5.5" value="1.5" />
         </div>
         <div class="rangeContainer" id="brushRangeContainer">
-          <label class="label">Brush Size</label>
+          <label class="label">Brush size</label>
           <input type="range" id="brushRange" min="10" max="50" value="20" />
         </div>
         <div class="rangeContainer" id="sprayRangeContainer">
-          <label class="label">Spray Area</label>
-        <input type="range" id="sprayRange" min="10" max="100" value="30" />
+          <label class="label">Spray area</label>
+          <input type="range" id="sprayRange" min="10" max="100" value="30" />
         </div>
         <div class="rangeContainer" id="lineRangeContainer">
-          <label class="label">Line Width</label>
-        <input type="range" id="lineRange" min="0.5" max="5.5" value="1.5" />
+          <label class="label">Line width</label>
+          <input type="range" id="lineRange" min="0.5" max="5.5" value="1.5" />
         </div>
         <div class="rangeContainer" id="bCurveRangeContainer">
-          <label class="label">Bezier Curve Width</label>
-        <input type="range" id="bCurveRange" min="0.5" max="5.5" value="1.5" />
+          <label class="label">Bézier curve width</label>
+          <input
+            type="range"
+            id="bCurveRange"
+            min="0.5"
+            max="5.5"
+            value="1.5"
+          />
         </div>
         <div class="rangeContainer" id="eraserRangeContainer">
-          <label class="label">Eraser Size</label>
-        <input type="range" id="eraserRange" min="5" max="30" value="5" />
+          <label class="label">Eraser size</label>
+          <input type="range" id="eraserRange" min="5" max="50" value="5" />
+        </div>
+        <div class="rangeContainer" id="textRangeContainer">
+          <label class="label">Text size</label>
+          <input type="range" id="textRange" min="8" max="48" value="16" />
         </div>
       </div>
-      <div id="toolExplain"></div>
-    </nav>
 
+      <div id="toolExplain">
+        Hover over each button to see tool explanation.<br />
+        <br />
+        Click the top-right arrow to hide this toolbar and start drawing.
+      </div>
+    </nav>
 
     <div class="canvas-container">
       <canvas id="canvas-real"></canvas>
       <canvas id="canvas-draft"></canvas>
     </div>
 
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
     <script
       src="https://code.jquery.com/jquery-3.6.2.min.js"
       integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
@@ -190,6 +194,7 @@
     ></script>
 
     <!-- Functionalities -->
+    <script src="./JS/init.js"></script>
     <script src="./JS/iconChanger.js"></script>
     <script src="./JS/changeWidthAndSize.js"></script>
     <script src="./JS/global.js"></script>
@@ -200,160 +205,13 @@
     <script src="./JS/drawLine.js"></script>
     <script src="./JS/bezierCurve.js"></script>
     <script src="./JS/drawRectangle.js"></script>
-    <script src="./JS/drawCircle.js"></script>
+    <script src="./JS/drawEllipse.js"></script>
     <script src="./JS/drawTriangle.js"></script>
     <script src="./JS/eraser.js"></script>
     <script src="./JS/undoRedo.js"></script>
     <script src="./JS/colorPicker.js"></script>
-    <script src="./JS/textBox.js"></script>
     <script src="./JS/text.js"></script>
-
-    <!-- Change drawing tools -->
-    <script type="text/javascript">
-      $(() => {
-        currentFunction = new Pen(contextReal); // Default drawing tool
-        $("#pen").click(() => {
-          currentFunction = new Pen(contextReal);
-          changePenWidth();
-        });
-
-        $("#pen").mouseover(function () {
-          $("#toolExplain").html("Pen Tool");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-
-        $("#brush").click(() => {
-          currentFunction = new Brush(contextReal);
-          changeBrushSize();
-        });
-        $("#brush").mouseover(function () {
-          $("#toolExplain").html("Brush Tool");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-
-        $("#spray").click(() => {
-          currentFunction = new Spray(contextReal);
-          changeSprayArea();
-        });
-
-        $("#spray").mouseover(function () {
-          $("#toolExplain").html("Spray tool");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-
-        $("#line").click(() => {
-          currentFunction = new DrawingLine(contextReal, contextDraft);
-          changeLineWidth();
-        });
-
-        $("#line").mouseover(function () {
-          $("#toolExplain").html("Straight line tool");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-
-        $("#bezierCurve").click(() => {
-          currentFunction = new BezierCurve(contextReal, contextDraft);
-          changeBCurveWidth();
-        });
-
-        $("#bezierCurve").mouseover(function () {
-          $("#toolExplain").html("Bezier Curve Tool");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-
-        $("#rectangle").click(() => {
-          currentFunction = new DrawingRectangle(contextReal, contextDraft);
-          // hideSize();
-        });
-
-        $("#rectangle").mouseover(function () {
-          $("#toolExplain").html("Rectangle Tool");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-
-        $("#circle").click(() => {
-          currentFunction = new DrawingCircle(contextReal, contextDraft);
-          // hideSize();
-        });
-
-        $("#circle").mouseover(function () {
-          $("#toolExplain").html("Circle Tool");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-        $("#triangle").click(() => {
-          currentFunction = new DrawingTriangle(contextReal, contextDraft);
-          // hideSize();
-        });
-
-        $("#triangle").mouseover(function () {
-          $("#toolExplain").html("Triangle Tool");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-
-        $("#textBox").on("click", function () {
-          currentFunction = new TextBox(
-            contextReal,
-            contextDraft,
-            currentColor
-          );
-          $(`.wrapper`).toggle();
-          // hideSize();
-        });
-
-        $("#insertText").click(function () {
-          currentFunction = new insertText(contextReal, contextDraft)
-        })
-
-        $("#textBox").mouseover(function () {
-          $("#toolExplain").html("Text Box");
-
-          $(this).mouseleave(function () {
-            $("#toolExplain").html("............................");
-          });
-        });
-
-        $("#eraser").click(() => {
-          currentFunction = new Eraser(contextReal, contextDraft);
-          changeEraserSize();
-        });
-        $("#undo").click(() => {
-          undo();
-          // hideSize();
-        });
-        $("#redo").click(() => {
-          redo();
-          // hideSize();
-        });
-        $("#clear").click(() => {
-          saveCurrent();
-          contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-          // hideSize();
-        });
-      });
-    </script>
+    <script src="./JS/toolTip.js"></script>
+    <script src="./JS/clickFunctions.js"></script>
   </body>
 </html>

@@ -5,8 +5,6 @@ class BezierCurve extends PaintFunction {
     super();
     this.contextReal = contextReal;
     this.contextDraft = contextDraft;
-    // this.color = currentColor;
-    // this.lineWidth = lineWidth;
     this.lineMade = false;
   }
 
@@ -29,8 +27,6 @@ class BezierCurve extends PaintFunction {
 
       this.contextDraft.lineWidth = currentBCurveWidth;
       this.contextDraft.strokeStyle = currentColor;
-      // this.contextDraft.shadowBlur = 0;
-      // this.contextDraft.shadowColor = "#000000";
 
       this.contextDraft.stroke();
       // this.lineMade = true;
@@ -48,8 +44,6 @@ class BezierCurve extends PaintFunction {
 
       this.contextDraft.lineWidth = currentBCurveWidth;
       this.contextDraft.strokeStyle = currentColor;
-      // this.contextDraft.shadowBlur = 0;
-      // this.contextDraft.shadowColor = currentColor;
 
       this.contextDraft.beginPath();
       this.contextDraft.arc(coord[0], coord[1], 10, 0, 2 * Math.PI);
@@ -98,8 +92,6 @@ class BezierCurve extends PaintFunction {
 
       this.contextReal.lineWidth = currentBCurveWidth;
       this.contextReal.strokeStyle = currentColor;
-      // this.contextReal.shadowBlur = 0;
-      // this.contextReal.shadowColor = currentColor;
       this.contextReal.stroke();
 
       this.lineMade = false;

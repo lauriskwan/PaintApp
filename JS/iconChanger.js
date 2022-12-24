@@ -1,30 +1,36 @@
 // --- Changing paint tool icon
 
 let currentPaintIcon = "fa-solid fa-pen";
+let currentLSIcon = "fa-solid fa-shapes";
 
 $("#pen").click(function () {
   $("#paintTool").removeClass(currentPaintIcon);
   currentPaintIcon = "fa-solid fa-pen";
   $("#paintTool").addClass(currentPaintIcon);
+  $("#LS").removeClass(currentLSIcon);
+  currentLSIcon = "fa-solid fa-shapes";
+  $("#LS").addClass(currentLSIcon);
 });
 
 $("#brush").click(function () {
   $("#paintTool").removeClass(currentPaintIcon);
   currentPaintIcon = "fa-solid fa-paintbrush";
   $("#paintTool").addClass(currentPaintIcon);
+  $("#LS").removeClass(currentLSIcon);
+  currentLSIcon = "fa-solid fa-shapes";
+  $("#LS").addClass(currentLSIcon);
 });
 
 $("#spray").click(function () {
   $("#paintTool").removeClass(currentPaintIcon);
   currentPaintIcon = "fa-solid fa-spray-can";
   $("#paintTool").addClass(currentPaintIcon);
+  $("#LS").removeClass(currentLSIcon);
+  currentLSIcon = "fa-solid fa-shapes";
+  $("#LS").addClass(currentLSIcon);
 });
 
-
-
 // --- Changing lines and shapes icon
-
-let currentLSIcon = "fa-solid fa-shapes";
 
 $("#line").click(function () {
   $("#LS").removeClass(currentLSIcon);
@@ -38,7 +44,7 @@ $("#bezierCurve").click(function () {
   $("#LS").addClass(currentLSIcon);
 });
 
-$("#circle").click(function () {
+$("#ellipse").click(function () {
   $("#LS").removeClass(currentLSIcon);
   currentLSIcon = "fa-solid fa-circle";
   $("#LS").addClass(currentLSIcon);
@@ -56,3 +62,17 @@ $("#triangle").click(function () {
   $("#LS").addClass(currentLSIcon);
 });
 
+
+// ---
+
+$("#eraser").click(function () {
+  $("#LS").removeClass(currentLSIcon);
+  currentLSIcon = "fa-solid fa-shapes";
+  $("#LS").addClass(currentLSIcon);
+});
+
+$("#insertText").click(function () {
+  $("#LS").removeClass(currentLSIcon);
+  currentLSIcon = "fa-solid fa-shapes";
+  $("#LS").addClass(currentLSIcon);
+});
