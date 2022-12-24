@@ -7,6 +7,6 @@ $(document).ready(function () {
   }, 1800);
 });
 
-penRange.addEventListener("change", function () {  // without this, penWidth cannot be changed when canvas first being initialized
+penRange.addEventListener("change", function () {  // without this, penWidth cannot be changed when canvas first being initiated
   currentPenLineWidth = penRange.value;
 });
