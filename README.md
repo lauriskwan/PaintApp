@@ -34,9 +34,6 @@ Edit:
 3. Clear
 4. Reset 
 
-![](readMe.jpg)
-
-
   
  **Section 4 - Credit**
  

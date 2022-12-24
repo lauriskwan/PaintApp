@@ -29,6 +29,7 @@ canvasContainer.style.marginLeft = `${fullWidth - canvasReal.width}px`;
 
 let sideBar = document.querySelector(".side-bar");
 let triggerOpen = document.querySelectorAll(".triggerOpen");
+let triggerCollapse = document.querySelectorAll(".triggerCollapse");
 let arrowCollapse = document.querySelector("#title__icon");
 let selectPalette = document.querySelector("#palette");
 
@@ -57,7 +58,38 @@ for (let i of triggerOpen) {
   };
 }
 
+for (let i of triggerCollapse) {
+  i.onclick = () => {
+    if (sideBar.classList.contains("collapse")) {
+      return;
+    } else {
+      sideBar.classList.add("collapse");
+      arrowCollapse.classList.add("collapse");
+      if (arrowCollapse.classList.contains("collapse")) {
+        arrowCollapse.classList =
+          "fa-solid fa-caret-right title__icon collapse";
+      } else {
+        arrowCollapse.classList = "fa-solid fa-caret-left title__icon";
+      }
+      if (sideBar.classList.contains("collapse")) {
+        sideBar.style.width = `${fullWidth - canvasReal.width}px`;
+      } else {
+        sideBar.style.width = "350px";
+      }
+
+      $(".tooltip").css("display", "none");
+      setTimeout(() => {
+        $(".tooltip").css("display", "unset");
+      }, 500);
+    }
+  };
+}
+
 arrowCollapse.onclick = () => {
+  $("#toolExplain").html("");
+  setTimeout(() => {
+    $(".title__name").html("<h3>HAVE FUN!</h3>");
+  }, 500);
   sideBar.classList.toggle("collapse");
   arrowCollapse.classList.toggle("collapse");
   if (arrowCollapse.classList.contains("collapse")) {

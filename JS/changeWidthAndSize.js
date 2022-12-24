@@ -4,6 +4,7 @@ const sprayRangeContainer = document.querySelector("#sprayRangeContainer");
 const lineRangeContainer = document.querySelector("#lineRangeContainer");
 const bCurveRangeContainer = document.querySelector("#bCurveRangeContainer");
 const eraserRangeContainer = document.querySelector("#eraserRangeContainer");
+const textRangeContainer = document.querySelector("#textRangeContainer");
 
 const penRange = document.querySelector("#penRange");
 const brushRange = document.querySelector("#brushRange");
@@ -11,6 +12,7 @@ const sprayRange = document.querySelector("#sprayRange");
 const lineRange = document.querySelector("#lineRange");
 const bCurveRange = document.querySelector("#bCurveRange");
 const eraserRange = document.querySelector("#eraserRange");
+const textRange = document.querySelector("#textRange");
 
 function changePenWidth() {
   $(`#brushRangeContainer`).hide();
@@ -18,8 +20,9 @@ function changePenWidth() {
   $(`#lineRangeContainer`).hide();
   $(`#bCurveRangeContainer`).hide();
   $(`#eraserRangeContainer`).hide();
+  $(`#textRangeContainer`).hide();
   $(`#penRangeContainer`).show();
-  $(`#penRangeContainer`).css("display", "flex");  // without css it returns display: block
+  $(`#penRangeContainer`).css("display", "flex"); // without css it returns display: block
 
   penRange.addEventListener("change", function () {
     currentPenLineWidth = penRange.value;
@@ -33,6 +36,7 @@ function changeBrushSize() {
   $(`#bCurveRangeContainer`).hide();
   $(`#eraserRangeContainer`).hide();
   $(`#penRangeContainer`).hide();
+  $(`#textRangeContainer`).hide();
   $(`#brushRangeContainer`).show();
   $(`#brushRangeContainer`).css("display", "flex");
 
@@ -47,6 +51,7 @@ function changeSprayArea() {
   $(`#bCurveRangeContainer`).hide();
   $(`#eraserRangeContainer`).hide();
   $(`#penRangeContainer`).hide();
+  $(`#textRangeContainer`).hide();
   $(`#sprayRangeContainer`).show();
   $(`#sprayRangeContainer`).css("display", "flex");
 
@@ -61,6 +66,7 @@ function changeLineWidth() {
   $(`#eraserRangeContainer`).hide();
   $(`#penRangeContainer`).hide();
   $(`#sprayRangeContainer`).hide();
+  $(`#textRangeContainer`).hide();
   $(`#lineRangeContainer`).show();
   $(`#lineRangeContainer`).css("display", "flex");
 
@@ -75,6 +81,7 @@ function changeBCurveWidth() {
   $(`#penRangeContainer`).hide();
   $(`#sprayRangeContainer`).hide();
   $(`#lineRangeContainer`).hide();
+  $(`#textRangeContainer`).hide();
   $(`#bCurveRangeContainer`).show();
   $(`#bCurveRangeContainer`).css("display", "flex");
 
@@ -85,7 +92,7 @@ function changeBCurveWidth() {
 
 function changeEraserSize() {
   $(`#brushRangeContainer`).hide();
-  $(`#eraseRangeContainer`).hide();
+  $(`#textRangeContainer`).hide();
   $(`#penRangeContainer`).hide();
   $(`#sprayRangeContainer`).hide();
   $(`#lineRangeContainer`).hide();
@@ -95,6 +102,22 @@ function changeEraserSize() {
 
   eraserRange.addEventListener("change", function () {
     currentEraserSize = eraserRange.value;
+  });
+}
+
+function changeTextSize() {
+  $(`#penRangeContainer`).hide();
+  $(`#brushRangeContainer`).hide();
+  $(`#sprayhRangeContainer`).hide();
+  $(`#lineRangeContainer`).hide();
+  $(`#bCurveRangeContainer`).hide();
+  $(`#eraserRangeContainer`).hide();
+  $(`#textRangeContainer`).show();
+  $(`#textRangeContainer`).css("display", "flex"); // without css it returns display: block
+
+  textRange.addEventListener("change", function () {
+    currentTextSize = textRange.value;
+    console.log(currentTextSize)
   });
 }
 
