@@ -169,7 +169,7 @@ $("#clear").mouseover(function () {
 });
 
 $("#save").mouseover(function () {
-  $("#toolExplain").html("Save <br><br>Happy with your work? <br>Now save it locally! <br>Click to download.");
+  $("#toolExplain").html("Save <br><br>Happy with your work? <br>Now save it in your device! <br>Click to download.");
 
   $(this).mouseleave(function () {
     $("#toolExplain").html("");
