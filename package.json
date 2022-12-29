@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/lauriskwan/Canvas/issues"
   },
-  "homepage": "https://github.com/lauriskwan/Canvas/canvas.html",
+  "homepage": "https://github.com/lauriskwan/Canvas#readme",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   }
